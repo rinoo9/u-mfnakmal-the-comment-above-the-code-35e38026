@@ -3,6 +3,8 @@
 
 import { mkdirSync, writeFileSync } from "node:fs";
 
+const OUTPUT_PATH = "/output/entry.txt";
+
 const COMMENT =
   "// Do not touch this function: it is held together by a deprecated library, two TODOs from 2019, and a test suite nobody has dared to run since 2021.";
 
@@ -12,7 +14,7 @@ function main(): void {
     throw new Error(`comment must be 1-200 characters, got ${COMMENT.length}`);
   }
   mkdirSync("/output", { recursive: true });
-  writeFileSync("/output/entry.txt", COMMENT, { encoding: "utf8" });
+  writeFileSync(OUTPUT_PATH, COMMENT, { encoding: "utf8" });
 }
 
 main();
